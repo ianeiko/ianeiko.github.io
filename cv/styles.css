@@ -1,0 +1,501 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS Custom Properties for theming */
+:root {
+    /* Dark theme colors */
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #252525;
+    --text-primary: #ffffff;
+    --text-secondary: #b3b3b3;
+    --text-muted: #808080;
+
+    /* Highlight colors - Notion-inspired */
+    --highlight-blue: #4a9eff;
+    --highlight-green: #5fb176;
+    --highlight-purple: #9b59b6;
+    --highlight-orange: #ff7b54;
+    --highlight-accent: #ffd93d;
+
+    /* Spacing and typography */
+    --font-family: 'Menlo', serif;
+    --line-height-base: 1.6;
+    --border-radius: 6px;
+
+    /* Print-specific variables */
+    --print-margin: 0.75in;
+}
+
+/* Base typography */
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.2;
+    font-size: 10pt;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Container */
+.resume-container {
+    max-width: 8.5in;
+    margin: 0 auto;
+    padding: 0.5rem;
+    background-color: var(--bg-primary);
+}
+
+/* Header section */
+.header-section {
+    margin-bottom: 0.25rem;
+    padding-bottom: 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.name-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--highlight-blue);
+}
+
+.name {
+    font-size: 12pt;
+    font-weight: 700;
+    margin: 0;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 0;
+    font-size: 9pt;
+    color: var(--text-secondary);
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-item {
+    color: var(--text-secondary);
+    padding: 0 0.3rem;
+}
+
+.contact-item:not(:last-child)::after {
+    content: ' | ';
+    color: var(--text-muted);
+    margin-left: 0.3rem;
+}
+
+.contact-link {
+    color: var(--highlight-blue);
+    text-decoration: none;
+    transition: color 0.2s ease;
+    padding: 0 0.3rem;
+}
+
+.contact-link:not(:last-child)::after {
+    content: ' | ';
+    color: var(--text-muted);
+    margin-left: 0.3rem;
+}
+
+.contact-link:hover {
+    color: var(--text-primary);
+    text-decoration: underline;
+}
+
+/* Section styling */
+.section {
+    margin-bottom: 0.25rem;
+}
+
+.section-title {
+    font-size: 8pt;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+    padding-bottom: 0.05rem;
+    display: inline-block;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+/* Highlight color classes */
+.highlight-blue {
+    color: var(--highlight-blue);
+}
+
+.highlight-green {
+    color: var(--highlight-green);
+}
+
+.highlight-purple {
+    color: var(--highlight-purple);
+}
+
+.highlight-orange {
+    color: var(--highlight-orange);
+}
+
+.highlight-accent {
+    color: var(--highlight-accent);
+    font-weight: 500;
+}
+
+/* Summary section */
+.summary-text {
+    /* font-size: 9pt; */
+    line-height: 1.2;
+    color: var(--text-secondary);
+}
+
+/* Skills section */
+.skills-condensed {
+    color: var(--text-secondary);
+    line-height: 1.2;
+    /* font-size: 9pt; */
+}
+
+.skills-condensed strong {
+    color: var(--text-primary);
+}
+
+/* Experience section */
+.job {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.25rem;
+}
+
+.job:last-child {
+    margin-bottom: 0;
+}
+
+.job-header, .entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.15rem;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+
+.job-title-company {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.job-title {
+    font-size: 12pt;
+    font-weight: 400;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.company-name {
+    font-weight: 500;
+    color: var(--highlight-blue);
+    font-size: 12pt;
+}
+
+.location {
+    color: var(--text-muted);
+    font-size: 9pt;
+}
+
+.job-dates, .entry-dates {
+    font-size: 9pt;
+    color: var(--text-muted);
+    font-weight: 500;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.job-achievements {
+    list-style: none;
+    margin-left: 0;
+}
+
+.job-achievements li, .job .entry-achievements li {
+    position: relative;
+    padding-left: 0.8rem;
+    margin-bottom: 0.1rem;
+    color: var(--text-muted);
+    line-height: 1.2;
+    /* font-size: 9pt; */
+}
+
+.job-achievements li::before, .job .entry-achievements li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--highlight-purple);
+    font-weight: bold;
+}
+
+.tech-stack {
+    color: var(--highlight-green);
+    font-weight: 500;
+    /* font-size: 9pt; */
+}
+
+.tech-stack-note {
+    margin-top: 0.25rem;
+    padding: 0.25rem;
+    background-color: var(--bg-secondary);
+    border-radius: var(--border-radius);
+    /* font-size: 10pt; */
+    color: var(--text-secondary);
+}
+
+/* Projects section */
+.project {
+    margin-bottom: 0.3rem;
+    padding-bottom: 0.15rem;
+}
+
+.project:last-child {
+    margin-bottom: 0;
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.15rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+}
+
+.project-title {
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.project-dates {
+    font-size: 9pt;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.project-description {
+    color: var(--text-secondary);
+    margin-bottom: 0.15rem;
+    line-height: 1.2;
+    /* font-size: 9pt; */
+}
+
+.project-achievements {
+    list-style: none;
+    margin-left: 0;
+}
+
+.project-achievements li, .project .entry-achievements li {
+    position: relative;
+    padding-left: 0.8rem;
+    margin-bottom: 0.1rem;
+    color: var(--text-secondary);
+    line-height: 1.2;
+    /* font-size: 9pt; */
+}
+
+.project-achievements li::before, .project .entry-achievements li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--highlight-purple);
+    font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .resume-container {
+        padding: 1rem;
+    }
+
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .name-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 0.5rem;
+    }
+
+    .avatar {
+        width: 65px;
+        height: 65px;
+    }
+
+    .name {
+        font-size: 1.75rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-self: center;
+    }
+
+    .job-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    * {
+        -webkit-print-color-adjust: exact !important;
+        color-adjust: exact !important;
+        print-color-adjust: exact !important;
+    }
+
+    @page {
+        size: letter;
+        margin: var(--print-margin);
+    }
+
+    .resume-container {
+        max-width: none;
+        padding: 0;
+        margin: 0.1in 0.2in;
+    }
+
+    .name {
+        font-size: 11pt;
+    }
+
+    .avatar {
+        width: 50px;
+        height: 50px;
+    }
+
+    .section-title {
+        font-size: 7pt;
+        margin-bottom: 0.15rem;
+        padding-bottom: 0.03rem;
+    }
+
+    .contact-info {
+        flex-wrap: nowrap;
+        gap: 0.2rem;
+        font-size: 9pt;
+    }
+
+    /* Page break controls - only prevent breaking within sections */
+    .job, .project {
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .job-header {
+        page-break-after: avoid;
+        break-after: avoid;
+    }
+
+    /* Ensure proper spacing in print */
+    .section {
+        margin-bottom: 0.2rem;
+    }
+
+    .job {
+        margin-bottom: 0.3rem;
+        padding-bottom: 0.2rem;
+    }
+
+    .project {
+        margin-bottom: 0.2rem;
+        padding-bottom: 0.1rem;
+    }
+
+    .header-section {
+        margin-bottom: 0.2rem;
+        padding-bottom: 0.1rem;
+    }
+
+    .job-header {
+        margin-bottom: 0.1rem;
+    }
+
+    .job-achievements li {
+        margin-bottom: 0.05rem;
+        line-height: 1.1;
+    }
+
+    .project-achievements li {
+        margin-bottom: 0.05rem;
+        line-height: 1.1;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --text-secondary: #e0e0e0;
+        --text-muted: #cccccc;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .contact-link {
+        transition: none;
+    }
+}
+
+/* Fix for entry title company layout */
+.entry-title-company {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+}
+
+.entry-title {
+    white-space: nowrap;
+}
+
+.company-name {
+    white-space: nowrap;
+}
+
+.location {
+    white-space: nowrap;
+}
