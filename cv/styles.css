@@ -58,7 +58,7 @@ body {
 .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
 }
@@ -95,6 +95,7 @@ body {
     color: var(--text-secondary);
     align-items: center;
     justify-content: center;
+    align-self: center;
 }
 
 .contact-item {
@@ -239,16 +240,15 @@ body {
     margin-left: 0;
 }
 
-.job-achievements li, .job .entry-achievements li {
+.job-achievements li {
     position: relative;
     padding-left: 0.8rem;
     margin-bottom: 0.1rem;
-    color: var(--text-muted);
+    color: var(--text-secondary);
     line-height: 1.2;
-    /* font-size: 9pt; */
 }
 
-.job-achievements li::before, .job .entry-achievements li::before {
+.job-achievements li::before {
     content: '•';
     position: absolute;
     left: 0;
@@ -306,29 +306,6 @@ body {
     color: var(--text-secondary);
     margin-bottom: 0.15rem;
     line-height: 1.2;
-    /* font-size: 9pt; */
-}
-
-.project-achievements {
-    list-style: none;
-    margin-left: 0;
-}
-
-.project-achievements li, .project .entry-achievements li {
-    position: relative;
-    padding-left: 0.8rem;
-    margin-bottom: 0.1rem;
-    color: var(--text-secondary);
-    line-height: 1.2;
-    /* font-size: 9pt; */
-}
-
-.project-achievements li::before, .project .entry-achievements li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--highlight-purple);
-    font-weight: bold;
 }
 
 /* Responsive design */
@@ -393,7 +370,7 @@ body {
     .resume-container {
         max-width: none;
         padding: 0;
-        margin: 0.1in 0.2in;
+        margin: 0.12in;
     }
 
     .name {
@@ -454,12 +431,6 @@ body {
 
     .job-achievements li {
         margin-bottom: 0.05rem;
-        line-height: 1.1;
-    }
-
-    .project-achievements li {
-        margin-bottom: 0.05rem;
-        line-height: 1.1;
     }
 }
 
